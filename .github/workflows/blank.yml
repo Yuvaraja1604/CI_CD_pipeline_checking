@@ -33,13 +33,14 @@ jobs:
         run: java -version
 
       - name: Run Tests and Build JAR
+        working-directory: ./demo
         run: mvn clean package
 
       - name: Upload JAR Artifact
         uses: actions/upload-artifact@v4
         with:
           name: springboot-jar
-          path: target/*.jar
+          path: demo/target/*.jar
           if-no-files-found: error
 
 
